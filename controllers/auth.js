@@ -42,6 +42,14 @@ const login = async (req, res) => {
   }
 }
 
+
+const refreshToken = async (req, res) => {
+  const { user } = req
+  const token = await generateJwt(user.id)
+  res.json({ user, token })
+}
+
 module.exports = {
-  login
+  login,
+  refreshToken
 }

@@ -31,8 +31,10 @@ const validateToken = async (req, res, next) => {
         msg: 'Token not valid - user not valid'
       });
     }
+
     req.user = user;
     next();
+  
   } catch (error) {
     console.log(error);
     return res.status(401).json({
